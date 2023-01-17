@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>  
+    <div class="container">
+        <div class="container-block">
+            <div class="header">
+                <ul>
+                    {% if not user.is_authenticated %}
+                        <li><a href="/accounts/login">LOGIN</a></li>
+                    {% else %}
+                        <li><a href="/user_cart">Корзина</a></li>
+                        <li><a href="/user_cabinet">Кабинет</a></li>
+                        <li><a href="/accounts/logout">LOG OUT</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+
+            <div class="courses">
+                <div class="courses_all_text">
+                    <h1>Ваши курсы</h1>
+                </div>
+                <ul>
+                    {% for i in user_cabinet %}
+                        <div class="course_item">
+                            <li>
+                                Курс: <a href="/user_course/{{ i.user_courses }}">{{ i.user_courses }}</a>
+                            </li>
+                        </div>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer"></div>
+
+</body>
+</html>

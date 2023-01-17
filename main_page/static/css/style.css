@@ -1,0 +1,116 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+/* .container{
+    display: flex;
+    justify-content: center;
+}
+
+.container-block{
+    width: 1240px;
+} */
+
+.header{
+    background:rgba(81, 132, 204, 0.673);
+    font-family: sans-serif;
+}
+.header ul{
+    padding: 15px;
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+}
+
+.header ul li{
+    padding: 5px;
+}
+
+.header ul li a{
+    font-weight: bold;
+    text-decoration: none;
+    color: #ffff;
+}
+
+.header ul li a:hover{
+    color: rgb(41, 96, 171);
+}
+
+
+.sales{
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.category ul{
+    padding: 15px;
+    display: flex;
+    justify-content: flex-start;
+    list-style: none;
+    background: rgb(56, 94, 152);
+}
+
+.category ul li{
+    padding: 0 15px;
+}
+
+.category ul li:last-child{
+    padding-right: 0px;
+}
+
+.category ul li:not(:last-child){
+    padding-left: 0px;
+}
+
+
+.category ul li a{
+    font-size: 20px;
+    color: #ffff;
+    
+}
+
+.category ul li a:hover{
+    color: #000;
+}
+
+
+.courses{
+    padding: 15px 0;
+    background: rgb(64, 110, 179);
+}
+
+.courses_all_text{
+    display: flex;
+    justify-content: center;
+    color: antiquewhite;
+}
+
+.courses ul{
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    padding: 15px 0;
+    height: 100%;
+}
+
+.courses ul .course_item{
+    padding: 10px;
+    flex: 0 1 25%;
+    width: 100%;
+}
+
+
+.courses ul li{
+    background: rgb(176, 160, 160);
+    padding: 10px;
+}
+
+.coursesimg{
+    width: 100%;
+    object-fit: contain;
+}

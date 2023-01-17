@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>  
+    <div class="container">
+        <div class="container-block">
+            <div class="header">
+                <ul>
+                    {% if not user.is_authenticated %}
+                        <li><a href="/accounts/login">LOGIN</a></li>
+                    {% else %}
+                        <li><a href="/user_cart">Корзина</a></li>
+                        <li><a href="/user_cabinet">Кабинет</a></li>
+                        <li><a href="/accounts/logout">LOG OUT</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            <div class="courses">
+                <div class="courses_all_text">
+                    <h1>Ваша корзина</h1>
+                </div>
+                <ul>
+                    {% for i in user_cart %}
+                    <div class="course_item">
+                        <li>
+                            <p>Курс: {{ i.user_product.course_name }}</p>
+                            <p>Цена: {{ i.user_product.course_price }}</p>
+                        </li>
+                    </div>
+                    {% endfor %}
+                </ul>
+                {% if user_cart %}
+                        <form action="/confirm_order" method="post">
+                            {% csrf_token %}
+                            <button>Оформить заказ</button>
+                        </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="footer"></div>
+
+</body>
+</html>
